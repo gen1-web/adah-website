@@ -558,3 +558,59 @@ button{font:inherit;color:inherit;cursor:pointer}
   .p-row input{width:100%}
   .p-row{width:100%}
 }
+
+/* ===== Animated hero images and site-wide Islamic pattern ===== */
+:root{--lattice:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'64'%20height%3D'64'%20viewBox%3D'0%200%2064%2064'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23B8936B'%20stroke-opacity%3D'.12'%20stroke-width%3D'.8'%3E%3Crect%20x%3D'22'%20y%3D'22'%20width%3D'20'%20height%3D'20'%2F%3E%3Crect%20x%3D'22'%20y%3D'22'%20width%3D'20'%20height%3D'20'%20transform%3D'rotate(45%2032%2032)'%2F%3E%3Cpath%20d%3D'M32%200v18M32%2046v18M0%2032h18M46%2032h18'%2F%3E%3Crect%20x%3D'-6'%20y%3D'-6'%20width%3D'12'%20height%3D'12'%20transform%3D'rotate(45%200%200)'%2F%3E%3Crect%20x%3D'58'%20y%3D'-6'%20width%3D'12'%20height%3D'12'%20transform%3D'rotate(45%2064%200)'%2F%3E%3Crect%20x%3D'-6'%20y%3D'58'%20width%3D'12'%20height%3D'12'%20transform%3D'rotate(45%200%2064)'%2F%3E%3Crect%20x%3D'58'%20y%3D'58'%20width%3D'12'%20height%3D'12'%20transform%3D'rotate(45%2064%2064)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");--lattice-dark:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'64'%20height%3D'64'%20viewBox%3D'0%200%2064%2064'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23FAF6EF'%20stroke-opacity%3D'.07'%20stroke-width%3D'.8'%3E%3Crect%20x%3D'22'%20y%3D'22'%20width%3D'20'%20height%3D'20'%2F%3E%3Crect%20x%3D'22'%20y%3D'22'%20width%3D'20'%20height%3D'20'%20transform%3D'rotate(45%2032%2032)'%2F%3E%3Cpath%20d%3D'M32%200v18M32%2046v18M0%2032h18M46%2032h18'%2F%3E%3Crect%20x%3D'-6'%20y%3D'-6'%20width%3D'12'%20height%3D'12'%20transform%3D'rotate(45%200%200)'%2F%3E%3Crect%20x%3D'58'%20y%3D'-6'%20width%3D'12'%20height%3D'12'%20transform%3D'rotate(45%2064%200)'%2F%3E%3Crect%20x%3D'-6'%20y%3D'58'%20width%3D'12'%20height%3D'12'%20transform%3D'rotate(45%200%2064)'%2F%3E%3Crect%20x%3D'58'%20y%3D'58'%20width%3D'12'%20height%3D'12'%20transform%3D'rotate(45%2064%2064)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");--rosette:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20200%20200'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23B8936B'%20stroke-width%3D'.6'%20stroke-opacity%3D'.55'%3E%3Crect%20x%3D'45'%20y%3D'45'%20width%3D'110'%20height%3D'110'%2F%3E%3Crect%20x%3D'45'%20y%3D'45'%20width%3D'110'%20height%3D'110'%20transform%3D'rotate(30%20100%20100)'%2F%3E%3Crect%20x%3D'45'%20y%3D'45'%20width%3D'110'%20height%3D'110'%20transform%3D'rotate(60%20100%20100)'%2F%3E%3Ccircle%20cx%3D'100'%20cy%3D'100'%20r%3D'40'%2F%3E%3Ccircle%20cx%3D'100'%20cy%3D'100'%20r%3D'79'%2F%3E%3Ccircle%20cx%3D'100'%20cy%3D'100'%20r%3D'96'%2F%3E%3Crect%20x%3D'72'%20y%3D'72'%20width%3D'56'%20height%3D'56'%20transform%3D'rotate(15%20100%20100)'%2F%3E%3Crect%20x%3D'72'%20y%3D'72'%20width%3D'56'%20height%3D'56'%20transform%3D'rotate(60%20100%20100)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E")}
+
+/* Subtle lattice behind every page section */
+body{background-color:var(--paper);background-image:var(--lattice);background-size:64px 64px}
+.cal-sec{background:transparent}
+.space{background:var(--lattice),var(--sand);background-size:64px 64px,auto}
+.check{background:var(--lattice),var(--white);background-size:64px 64px,auto}
+.morning{background:var(--lattice-dark),var(--ink);background-size:64px 64px,auto}
+.belief{background:var(--lattice),var(--sand);background-size:64px 64px,auto}
+.foot{background:var(--lattice-dark),var(--ink);background-size:64px 64px,auto}
+.card.tool-timer{background:var(--lattice-dark),var(--ink);background-size:64px 64px,auto}
+.nav{background:rgba(250,246,239,.95)}
+
+/* Hero slideshow */
+.hero-visual{isolation:isolate}
+.hero-visual::before{content:"";position:absolute;z-index:-1;width:118%;aspect-ratio:1;left:-9%;top:2%;background:var(--rosette) center/contain no-repeat;opacity:.8;animation:rosetteSpin 140s linear infinite}
+.hero-slides{position:relative;width:100%;aspect-ratio:4/4.6;border-radius:220px 220px 28px 28px;overflow:hidden;background:var(--sand);box-shadow:0 30px 60px -30px rgba(58,42,30,.45)}
+.hs{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:hsFade 24s ease-in-out infinite both;will-change:opacity,transform}
+.hs:nth-child(1){animation-delay:-1s}
+.hs:nth-child(2){animation-delay:5s}
+.hs:nth-child(3){animation-delay:11s}
+.hs:nth-child(4){animation-delay:17s}
+.hs-dots{position:absolute;right:22px;bottom:20px;display:flex;gap:6px;z-index:2}
+.hs-dots i{position:relative;width:22px;height:3px;border-radius:3px;background:rgba(255,255,255,.45);overflow:hidden}
+.hs-dots i::after{content:"";position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(0);animation:hsDot 24s linear infinite both}
+.hs-dots i:nth-child(1)::after{animation-delay:-1s}
+.hs-dots i:nth-child(2)::after{animation-delay:5s}
+.hs-dots i:nth-child(3)::after{animation-delay:11s}
+.hs-dots i:nth-child(4)::after{animation-delay:17s}
+
+/* Widgets drift gently */
+.w{animation:wFloat 7s ease-in-out infinite}
+.w-habit{animation-delay:-2.3s}
+.w-note{animation-delay:-4.6s}
+
+@keyframes hsFade{
+  0%{opacity:0;transform:scale(1.1)}
+  4%{opacity:1}
+  25%{opacity:1}
+  29%{opacity:0;transform:scale(1)}
+  100%{opacity:0;transform:scale(1)}
+}
+@keyframes hsDot{0%{transform:scaleX(0)}25%{transform:scaleX(1);opacity:1}26%,100%{transform:scaleX(1);opacity:0}}
+@keyframes wFloat{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@keyframes rosetteSpin{to{rotate:360deg}}
+
+@media (prefers-reduced-motion:reduce){
+  .hs,.hs-dots i::after,.w,.hero-visual::before{animation:none}
+  .hs:first-child{opacity:1}
+  .hs-dots{display:none}
+}
+@media (max-width:560px){
+  .hs-dots{right:16px;bottom:14px}
+}
