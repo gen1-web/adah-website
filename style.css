@@ -9,8 +9,8 @@
   --ink:#3A2A1E;        /* date-brown, main text */
   --ink-soft:#6E5B4A;
 
-  --display:"Gloock", "Bodoni 72", Didot, Georgia, serif;
-  --body:"Hanken Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --display:"Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --body:"Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
 
   --wrap:1180px;
   --gap:clamp(1.25rem, 3vw, 2.5rem);
@@ -21,14 +21,15 @@
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{
   margin:0;background:var(--paper);color:var(--ink);
-  font-family:var(--body);font-size:1.0625rem;line-height:1.65;
+  font-family:var(--body);font-size:1rem;line-height:1.7;
   -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.01em}
-h2{font-size:clamp(2rem, 4.4vw, 3.25rem)}
-h3{font-size:1.35rem;line-height:1.2}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.12;margin:0;letter-spacing:-.02em}
+.day-title,.big-quote,.say,.means-big,.q,.hadith blockquote p{font-weight:500;letter-spacing:-.015em}
+h2{font-size:clamp(1.8rem, 3.8vw, 2.8rem)}
+h3{font-size:1.2rem;line-height:1.3}
 p{margin:0 0 1rem}
 button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:2px solid var(--brown);outline-offset:3px;border-radius:4px}
@@ -73,7 +74,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 /* Hero */
 .hero{padding:clamp(3rem,8vw,6.5rem) 0 var(--sec)}
 .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
-.hero h1{font-size:clamp(3.1rem, 8.2vw, 6.6rem);line-height:.98;letter-spacing:-.02em}
+.hero h1{font-size:clamp(2.7rem, 6.2vw, 5rem);line-height:1.04;letter-spacing:-.035em}
 .lede{font-size:clamp(1.12rem,1.6vw,1.3rem);color:var(--ink-soft);max-width:34ch;margin-top:1.75rem}
 .note{font-size:.92rem;color:var(--ink-soft);margin-top:1rem}
 
@@ -106,7 +107,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 
 /* Belief */
 .belief{background:var(--sand);padding:var(--sec) 0;text-align:center}
-.big-quote{font-family:var(--display);font-size:clamp(2.3rem,6vw,4.6rem);line-height:1.04;letter-spacing:-.015em;margin-bottom:1.75rem}
+.big-quote{font-family:var(--display);font-size:clamp(2rem,5vw,3.8rem);line-height:1.1;letter-spacing:-.015em;margin-bottom:1.75rem}
 .belief-text{font-size:1.15rem;color:var(--ink-soft);max-width:56ch;margin:0 auto}
 
 /* Section heads */
@@ -119,14 +120,14 @@ button{font:inherit;color:inherit;cursor:pointer}
 .says{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .say{
   width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);
-  padding:1.15rem .25rem;font-family:var(--display);font-size:clamp(1.2rem,2vw,1.5rem);color:var(--ink-soft);
+  padding:1.15rem .25rem;font-family:var(--display);font-size:clamp(1.05rem,1.7vw,1.3rem);color:var(--ink-soft);
   transition:color .2s, padding .25s;
 }
 .say:hover{color:var(--ink)}
 .say.is-active{color:var(--ink);padding-left:1rem;box-shadow:inset 3px 0 0 var(--tan)}
 .means{background:var(--ink);color:var(--paper);border-radius:28px;padding:clamp(1.75rem,4vw,3rem);position:sticky;top:100px}
 .means-label{color:var(--tan);font-size:.95rem;margin-bottom:.75rem}
-.means-big{font-family:var(--display);font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.1;margin-bottom:1.5rem}
+.means-big{font-family:var(--display);font-size:clamp(1.6rem,2.8vw,2.2rem);line-height:1.2;margin-bottom:1.5rem}
 .means-step{color:#E6D9C7;margin:0;max-width:44ch}
 
 /* Quiz */
@@ -138,7 +139,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .quiz-top{display:flex;align-items:center;gap:1rem;font-size:.9rem;color:var(--ink-soft);margin-bottom:1.75rem}
 .bar{flex:1;height:4px;background:var(--line);border-radius:4px;overflow:hidden}
 .bar span{display:block;height:100%;width:0;background:var(--tan);transition:width .35s}
-.q{font-family:var(--display);font-size:clamp(1.45rem,2.6vw,2rem);line-height:1.18;margin-bottom:1.75rem;min-height:2.4em}
+.q{font-family:var(--display);font-size:clamp(1.3rem,2.2vw,1.7rem);line-height:1.3;margin-bottom:1.75rem;min-height:2.4em}
 .opts{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
 .opt{
   text-align:left;background:var(--white);border:1px solid var(--line);border-radius:16px;
@@ -148,13 +149,13 @@ button{font:inherit;color:inherit;cursor:pointer}
 .opt[aria-checked="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
 .quiz-nav{margin-top:1.5rem;min-height:1.5rem}
 .result-label{color:var(--brown);font-weight:500;margin-bottom:.4rem}
-.result h3{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:1rem}
+.result h3{font-size:clamp(1.6rem,2.8vw,2.2rem);margin-bottom:1rem}
 .result:focus{outline:none}
 .leaks{margin-top:1.75rem;border-top:1px solid var(--line);padding-top:1.5rem}
 .leaks-title{font-weight:600;margin-bottom:1rem}
 .leak{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;padding:.9rem 0;border-bottom:1px dashed var(--line)}
 .leak:last-child{border-bottom:0}
-.leak b{font-family:var(--display);font-weight:400;font-size:1.15rem}
+.leak b{font-family:var(--display);font-weight:600;font-size:1.05rem}
 .leak p{margin:0;color:var(--ink-soft)}
 
 /* Read */
@@ -169,10 +170,10 @@ button{font:inherit;color:inherit;cursor:pointer}
 .topic li a:hover{color:var(--brown)}
 .topic-lead{grid-column:1 / -1;background:var(--sand);display:grid;grid-template-columns:1fr 1fr;gap:1rem 3rem;align-content:start}
 .topic-lead p{margin:0}
-.topic-lead h3{font-size:clamp(1.8rem,3.2vw,2.5rem);grid-column:1}
+.topic-lead h3{font-size:clamp(1.6rem,2.8vw,2.2rem);grid-column:1}
 .topic-lead p{grid-column:1;font-size:1.08rem;max-width:40ch}
 .topic-lead ul{grid-column:2;grid-row:1 / span 2;margin:0;border-top:0}
-.topic-lead li a{font-family:var(--display);font-weight:400;font-size:1.25rem;padding:1rem 0;border-color:var(--tan)}
+.topic-lead li a{font-family:var(--display);font-weight:500;font-size:1.1rem;padding:1rem 0;border-color:var(--tan)}
 
 /* Morning */
 .morning{background:var(--ink);color:var(--paper);padding:var(--sec) 0}
@@ -182,20 +183,20 @@ button{font:inherit;color:inherit;cursor:pointer}
 .steps{list-style:none;margin:0;padding:0;counter-reset:s}
 .steps li{counter-increment:s;display:grid;grid-template-columns:3.5rem 1fr;padding:1.6rem 0;border-top:1px solid #5A4636}
 .steps li:last-child{border-bottom:1px solid #5A4636}
-.steps li::before{content:counter(s);font-family:var(--display);font-size:2rem;line-height:1;color:var(--tan)}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:600;font-size:1.8rem;line-height:1;color:var(--tan)}
 .steps h3{grid-column:2;margin-bottom:.5rem}
 .steps p{grid-column:2;color:#E6D9C7;margin:0;max-width:52ch}
 
 /* Hadith */
 .hadith{padding:var(--sec) 0}
 .hadith blockquote{margin:0;text-align:center}
-.hadith blockquote p{font-family:var(--display);font-size:clamp(1.55rem,3.2vw,2.35rem);line-height:1.3}
+.hadith blockquote p{font-family:var(--display);font-size:clamp(1.35rem,2.6vw,1.95rem);line-height:1.45}
 .hadith footer{color:var(--ink-soft);margin-top:1.5rem}
 
 /* Legacy */
 .legacy{background:var(--tan);color:var(--ink);padding:var(--sec) 0}
 .legacy-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
-.legacy h2{font-size:clamp(2rem,4.2vw,3.2rem)}
+.legacy h2{font-size:clamp(1.8rem,3.6vw,2.7rem)}
 .legacy p{font-size:1.1rem}
 
 /* Newsletter */
