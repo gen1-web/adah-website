@@ -253,3 +253,98 @@ button{font:inherit;color:inherit;cursor:pointer}
   .foot-base{flex-direction:column}
   .node{font-size:.75rem}
 }
+
+/* ===== Photos and productivity elements ===== */
+.menu{gap:1.5rem}
+
+/* Hero visual with live widgets */
+.hero-visual{position:relative;padding:1.5rem 0 2rem 2rem}
+.hero-photo{width:100%;background:var(--sand);aspect-ratio:4/4.6;object-fit:cover;border-radius:220px 220px 28px 28px;box-shadow:0 30px 60px -30px rgba(58,42,30,.45)}
+.w{position:absolute;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:18px;padding:.85rem 1rem;box-shadow:0 14px 34px -16px rgba(58,42,30,.35)}
+.w p{margin:0}
+.w-label{font-size:.78rem;color:var(--ink-soft);font-weight:500}
+.w-sub{font-size:.75rem;color:var(--brown);margin-top:.35rem}
+.w-timer{left:0;top:18%;display:flex;align-items:center;gap:.75rem}
+.w-timer svg{width:46px;height:46px;transform:rotate(-90deg)}
+.w-time{font-size:1.35rem;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.1}
+.w-habit{right:-.75rem;top:46%;min-width:160px}
+.dots{display:flex;gap:5px;margin-top:.45rem}
+.dots i{width:13px;height:13px;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--tan)}
+.dots i.today{border:2px dashed var(--tan);background:none}
+.w-note{left:8%;bottom:0;max-width:220px;background:#FFF8E9;transform:rotate(-2deg)}
+.w-text{font-weight:500;font-size:.95rem;line-height:1.35;margin-top:.2rem}
+.ring-bg{fill:none;stroke:var(--line);stroke-width:4}
+.ring-fg{fill:none;stroke:var(--tan);stroke-width:4;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:30;transition:stroke-dashoffset 1s linear}
+
+/* Your day */
+.day-sec{padding:0 0 var(--sec)}
+.day-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.day-copy p{color:var(--ink-soft);font-size:1.1rem;margin-top:1rem;max-width:40ch}
+.day-photo{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:24px;margin-top:1.75rem}
+
+/* Toolkit */
+.tools{padding:var(--sec) 0;background:var(--sand)}
+.tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;align-items:stretch}
+.tool{background:var(--white);border:1px solid var(--line);border-radius:28px;padding:clamp(1.5rem,3vw,2rem);display:flex;flex-direction:column}
+.tool h3{margin-bottom:1rem}
+.tool-timer{background:var(--ink);color:var(--paper);border-color:var(--ink);align-items:center;text-align:center}
+.timer-face{position:relative;width:min(220px,100%);margin:.5rem auto 1.25rem}
+.timer-face svg{width:100%;height:auto;transform:rotate(-90deg)}
+.tool-timer .ring-bg{stroke:#56402F;stroke-width:6}
+.tool-timer .ring-fg{stroke:var(--tan);stroke-width:6;stroke-dashoffset:0}
+.t-time{position:absolute;inset:0;display:grid;place-items:center;margin:0;font-size:2.6rem;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.presets{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+.chip{background:none;border:1px solid #6B5442;color:#E6D9C7;border-radius:999px;padding:.4rem .9rem;font-size:.88rem}
+.chip.is-on{background:var(--tan);border-color:var(--tan);color:var(--ink);font-weight:600}
+.t-actions{display:flex;gap:1.25rem;align-items:center;justify-content:center;margin-top:1.25rem}
+.tool-timer .btn{background:var(--paper);color:var(--ink)}
+.tool-timer .link{color:var(--tan)}
+.t-msg{font-size:.88rem;color:#CDBBA6;margin:1rem 0 0;min-height:2.6em}
+.tool-date{font-size:.88rem;color:var(--brown);margin:-.5rem 0 1rem}
+.tool textarea{width:100%;flex:1;min-height:130px;resize:vertical;font:inherit;color:var(--ink);background:#FFF8E9;border:1px solid var(--line);border-radius:16px;padding:1rem;line-height:1.6;margin-bottom:1rem}
+.tool textarea:focus{outline:2px solid var(--tan);outline-offset:1px}
+.tool-niyyah .btn{align-self:flex-start}
+.n-msg{font-size:.88rem;color:var(--brown);margin:.75rem 0 0;min-height:1.4em}
+.h-progress{height:8px;background:var(--sand);border-radius:8px;overflow:hidden}
+.h-progress span{display:block;height:100%;width:0;background:var(--tan);border-radius:8px;transition:width .3s}
+.h-count{font-size:.88rem;color:var(--ink-soft);margin:.6rem 0 1rem}
+.habits{list-style:none;margin:0;padding:0}
+.habits li{border-top:1px solid var(--line)}
+.habits label{display:flex;align-items:center;gap:.8rem;padding:.75rem 0;cursor:pointer}
+.habits input{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:2px solid var(--tan);border-radius:7px;margin:0;display:grid;place-items:center;flex:none;cursor:pointer}
+.habits input:checked{background:var(--ink);border-color:var(--ink)}
+.habits input:checked::after{content:"";width:6px;height:11px;border:solid var(--paper);border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
+.habits input:checked + span{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--tan)}
+
+/* Reading topics with photos */
+.topic-img{width:calc(100% + 2 * clamp(1.5rem,3vw,2rem));max-width:none;margin:calc(-1 * clamp(1.5rem,3vw,2rem)) calc(-1 * clamp(1.5rem,3vw,2rem)) 1.25rem;aspect-ratio:4/3;object-fit:cover}
+.topic-lead{grid-template-columns:1.1fr 1fr 1fr;grid-template-rows:auto 1fr;align-items:start}
+.topic-lead .topic-img{grid-column:1;grid-row:1 / span 2;width:100%;margin:0;aspect-ratio:4/3;border-radius:20px}
+.topic-lead h3,.topic-lead p{grid-column:2}
+.topic-lead ul{grid-column:3}
+
+/* Morning */
+.morning-photo{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:24px;margin-top:2rem;opacity:.92}
+.when{grid-column:2;font-size:.78rem;font-weight:600;color:var(--tan);margin-bottom:.15rem}
+
+/* Legacy with photo */
+.legacy{background:linear-gradient(90deg,rgba(40,28,19,.92) 0%,rgba(40,28,19,.78) 55%,rgba(40,28,19,.45) 100%),var(--legacy-img) center/cover no-repeat;color:var(--paper)}
+.legacy p{color:#EADFCF}
+
+@media (max-width:1000px){
+  .tool-grid{grid-template-columns:1fr 1fr}
+  .tool-timer{grid-column:1 / -1}
+  .topic-lead{grid-template-columns:1fr}
+  .topic-lead .topic-img,.topic-lead h3,.topic-lead p,.topic-lead ul{grid-column:1;grid-row:auto}
+}
+@media (max-width:860px){
+  .day-grid{grid-template-columns:1fr}
+  .hero-visual{padding:1rem 0 2.5rem 1rem;max-width:520px}
+  .w-habit{right:0}
+}
+@media (max-width:560px){
+  .tool-grid{grid-template-columns:1fr}
+  .w-timer{top:10%}
+  .w-note{left:4%}
+}

@@ -200,3 +200,109 @@ document.getElementById('sub-form').addEventListener('submit', e => {
   msg.textContent = 'You\u2019re in. Your first letter arrives this Friday, in sha Allah.';
   input.value = '';
 });
+
+/* ---------- Hero widget: live ticking focus timer ---------- */
+(function () {
+  const el = document.getElementById('hero-time');
+  const ring = document.getElementById('hero-ring');
+  if (!el) return;
+  let left = 47 * 60 + 12;
+  const total = 90 * 60;
+  const draw = () => {
+    const m = Math.floor(left / 60), s = left % 60;
+    el.textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+    ring.style.strokeDashoffset = 100 - (left / total * 100);
+  };
+  draw();
+  setInterval(() => { left = left > 0 ? left - 1 : total; draw(); }, 1000);
+})();
+
+/* ---------- Toolkit: deep work timer ---------- */
+(function () {
+  const timeEl = document.getElementById('t-time');
+  if (!timeEl) return;
+  const ring = document.getElementById('t-ring');
+  const startBtn = document.getElementById('t-start');
+  const msg = document.getElementById('t-msg');
+  const chips = document.querySelectorAll('.chip');
+  let length = 25 * 60, left = length, timer = null, endAt = 0;
+  const fmt = n => String(Math.floor(n / 60)).padStart(2, '0') + ':' + String(n % 60).padStart(2, '0');
+  const draw = () => {
+    timeEl.textContent = fmt(left);
+    ring.style.strokeDashoffset = 100 - (left / length * 100);
+    document.title = timer ? fmt(left) + ' focus | Adah' : 'Adah | Focus is a form of worship';
+  };
+  const stop = () => { clearInterval(timer); timer = null; startBtn.textContent = left < length ? 'Resume' : 'Start focus'; draw(); };
+  const tick = () => {
+    left = Math.max(0, Math.round((endAt - Date.now()) / 1000));
+    if (left === 0) {
+      stop();
+      startBtn.textContent = 'Start again';
+      left = length;
+      msg.textContent = 'Session complete, alhamdulillah. Stand up, stretch, or make wudu before the next block.';
+      draw();
+      return;
+    }
+    draw();
+  };
+  startBtn.addEventListener('click', () => {
+    if (timer) { stop(); msg.textContent = 'Paused. Come back when you are ready.'; return; }
+    endAt = Date.now() + left * 1000;
+    timer = setInterval(tick, 500);
+    startBtn.textContent = 'Pause';
+    msg.textContent = 'You are in a focus block. Notifications can wait.';
+    draw();
+  });
+  document.getElementById('t-reset').addEventListener('click', () => {
+    clearInterval(timer); timer = null; left = length;
+    startBtn.textContent = 'Start focus';
+    msg.textContent = 'Phone in another room. One task. Begin with Bismillah.';
+    draw();
+  });
+  chips.forEach(c => c.addEventListener('click', () => {
+    chips.forEach(x => x.classList.remove('is-on'));
+    c.classList.add('is-on');
+    clearInterval(timer); timer = null;
+    length = left = Number(c.dataset.min) * 60;
+    startBtn.textContent = 'Start focus';
+    draw();
+  }));
+  draw();
+})();
+
+/* ---------- Toolkit: niyyah and daily anchors (saved on this device) ---------- */
+(function () {
+  const today = new Date().toISOString().slice(0, 10);
+  const load = k => { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } };
+  const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } };
+
+  const dateEl = document.getElementById('n-date');
+  if (dateEl) dateEl.textContent = new Date().toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'long' });
+  const nText = document.getElementById('n-text');
+  const nMsg = document.getElementById('n-msg');
+  const savedN = load('adah-niyyah');
+  if (savedN && savedN.date === today) nText.value = savedN.text;
+  document.getElementById('n-save').addEventListener('click', () => {
+    if (!nText.value.trim()) { nMsg.textContent = 'Write one intention first, even a short one.'; nText.focus(); return; }
+    nMsg.textContent = save('adah-niyyah', { date: today, text: nText.value.trim() })
+      ? 'Saved. May Allah put barakah in it.'
+      : 'Could not save on this browser, but keep it in mind today.';
+  });
+
+  const boxes = document.querySelectorAll('#habits input');
+  const bar = document.getElementById('h-bar');
+  const count = document.getElementById('h-count');
+  const savedH = load('adah-habits');
+  const done = savedH && savedH.date === today ? savedH.done : [];
+  boxes.forEach(b => { b.checked = done.includes(b.value); });
+  const update = () => {
+    const on = [...boxes].filter(b => b.checked).map(b => b.value);
+    bar.style.width = (on.length / boxes.length * 100) + '%';
+    count.textContent = on.length === boxes.length
+      ? 'All 5 done today. Keep the streak going tomorrow.'
+      : on.length + ' of ' + boxes.length + ' done today';
+    save('adah-habits', { date: today, done: on });
+  };
+  boxes.forEach(b => b.addEventListener('change', update));
+  update();
+})();

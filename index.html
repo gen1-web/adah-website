@@ -27,9 +27,9 @@
     <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
     <nav id="menu" class="menu" aria-label="Main">
       <a href="#day">Your day</a>
-      <a href="#reframe">Reframe</a>
+      <a href="#tools">Toolkit</a>
       <a href="#read">Read</a>
-      <a href="#morning">Morning blueprint</a>
+      <a href="#morning">Mornings</a>
       <a href="#check" class="btn btn-small">Take the free check</a>
     </nav>
   </div>
@@ -50,7 +50,34 @@
         <p class="note">Free. Takes about 2 minutes. No sign-up needed.</p>
       </div>
 
-      <figure class="day" id="day" aria-labelledby="day-title">
+      <div class="hero-visual">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1720873160840-d5934323bb23?auto=format&fit=crop&q=80&w=1100" alt="Reading the Qur'an with prayer beads in soft morning light" width="1100" height="1300">
+        <div class="w w-timer" aria-hidden="true">
+          <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19" class="ring-bg"/><circle cx="22" cy="22" r="19" class="ring-fg" id="hero-ring" pathLength="100"/></svg>
+          <div><p class="w-label">Deep work</p><p class="w-time" id="hero-time">47:12</p></div>
+        </div>
+        <div class="w w-habit" aria-hidden="true">
+          <p class="w-label">Fajr on time</p>
+          <div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="today"></i></div>
+          <p class="w-sub">6-day streak</p>
+        </div>
+        <div class="w w-note" aria-hidden="true">
+          <p class="w-label">Today's niyyah</p>
+          <p class="w-text">Finish chapter three before Dhuhr</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- YOUR DAY -->
+  <section class="day-sec" id="day">
+    <div class="wrap day-grid">
+      <div class="day-copy">
+        <h2>Your day already has a rhythm</h2>
+        <p>Five prayers split your day into focused blocks. Use each one to stop, reset, and decide what deserves your next hour.</p>
+        <img class="day-photo" src="https://images.unsplash.com/photo-1761958150507-7bcc80840cf9?auto=format&fit=crop&q=80&w=900" alt="A prayer rug lit by a shaft of light" loading="lazy" width="900" height="600">
+      </div>
+      <figure class="day" aria-labelledby="day-title">
         <figcaption id="day-title" class="day-title">The five prayers aren't interruptions. They're recalibration points.</figcaption>
         <div class="arc-box">
           <svg class="arc" viewBox="0 0 400 220" aria-hidden="true">
@@ -95,6 +122,55 @@
           <p class="means-label">What you mean</p>
           <p class="means-big" id="means-big">I want to feel in control of my day.</p>
           <p class="means-step" id="means-step">Start with the first hour. Keep your phone out of reach until after Fajr and your morning adhkar. One protected hour sets the tone for the rest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLKIT -->
+  <section class="tools" id="tools">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Your focus toolkit</h2>
+        <p>Three simple tools you can use right now. Everything stays on your device.</p>
+      </div>
+      <div class="tool-grid">
+        <div class="tool tool-timer">
+          <h3>Deep work timer</h3>
+          <div class="timer-face">
+            <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" class="ring-bg"/><circle cx="60" cy="60" r="52" class="ring-fg" id="t-ring" pathLength="100"/></svg>
+            <p class="t-time" id="t-time" aria-live="polite">25:00</p>
+          </div>
+          <div class="presets" role="group" aria-label="Session length">
+            <button class="chip is-on" data-min="25">25 min</button>
+            <button class="chip" data-min="50">50 min</button>
+            <button class="chip" data-min="90">90 min</button>
+          </div>
+          <div class="t-actions">
+            <button class="btn" id="t-start">Start focus</button>
+            <button class="link" id="t-reset">Reset</button>
+          </div>
+          <p class="t-msg" id="t-msg">Phone in another room. One task. Begin with Bismillah.</p>
+        </div>
+        <div class="tool tool-niyyah">
+          <h3>Today's niyyah</h3>
+          <p class="tool-date" id="n-date"></p>
+          <label for="n-text" class="sr">Your intention for today</label>
+          <textarea id="n-text" rows="4" placeholder="What is the one thing you will build today, and why?"></textarea>
+          <button class="btn" id="n-save">Save niyyah</button>
+          <p class="n-msg" id="n-msg" aria-live="polite"></p>
+        </div>
+        <div class="tool tool-habits">
+          <h3>Daily anchors</h3>
+          <div class="h-progress"><span id="h-bar"></span></div>
+          <p class="h-count" id="h-count">0 of 5 done today</p>
+          <ul class="habits" id="habits">
+            <li><label><input type="checkbox" value="fajr"><span>Fajr on time</span></label></li>
+            <li><label><input type="checkbox" value="adhkar"><span>Morning adhkar</span></label></li>
+            <li><label><input type="checkbox" value="quran"><span>One page of Qur'an</span></label></li>
+            <li><label><input type="checkbox" value="deep"><span>One deep work block</span></label></li>
+            <li><label><input type="checkbox" value="curfew"><span>Phone away after Isha</span></label></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -147,6 +223,7 @@
 
       <div class="shelf">
         <article class="topic topic-lead">
+          <img class="topic-img" src="https://images.unsplash.com/photo-1587617425953-9075d28b8c46?auto=format&fit=crop&q=80&w=800" alt="The Qur'an on a carved wooden stand beside dates and prayer beads" loading="lazy" width="800" height="600">
           <h3>Islamic wisdom, modern focus</h3>
           <p>Qur'an, Hadith, and timeless Islamic concepts reframed for how you work and live now.</p>
           <ul>
@@ -156,6 +233,7 @@
           </ul>
         </article>
         <article class="topic">
+          <img class="topic-img" src="https://images.unsplash.com/photo-1435527173128-983b87201f4d?auto=format&fit=crop&q=80&w=800" alt="An open planner on a desk" loading="lazy" width="800" height="600">
           <h3>The focused Muslim life</h3>
           <p>What a calibrated, purposeful day looks and feels like.</p>
           <ul>
@@ -164,6 +242,7 @@
           </ul>
         </article>
         <article class="topic">
+          <img class="topic-img" src="https://images.unsplash.com/photo-1518281361980-b26bfd556770?auto=format&fit=crop&q=80&w=800" alt="An hourglass with falling sand" loading="lazy" width="800" height="600">
           <h3>Dopamine and attention</h3>
           <p>The science of focus and habit, through an Islamic lens.</p>
           <ul>
@@ -172,6 +251,7 @@
           </ul>
         </article>
         <article class="topic">
+          <img class="topic-img" src="https://images.unsplash.com/photo-1771758266506-c7002e6487af?auto=format&fit=crop&q=80&w=800" alt="Hands holding prayer beads over an open book" loading="lazy" width="800" height="600">
           <h3>Stories of change</h3>
           <p>Honest journeys from scattered to focused, from our community.</p>
           <ul>
@@ -180,6 +260,7 @@
           </ul>
         </article>
         <article class="topic">
+          <img class="topic-img" src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=800" alt="A cup of coffee resting on a weekly planner" loading="lazy" width="800" height="600">
           <h3>Tools and systems</h3>
           <p>Frameworks you can use today. Build the system, not just the willpower.</p>
           <ul>
@@ -197,25 +278,31 @@
       <div class="morning-head">
         <h2>A morning that protects your focus before the world takes it</h2>
         <p>Imagine waking up, praying Fajr with full presence, and knowing exactly what you'll build today. This is how to get there.</p>
+        <img class="morning-photo" src="https://images.unsplash.com/photo-1654124803453-5bb8819e1524?auto=format&fit=crop&q=80&w=900" alt="A notebook and pen on a wooden desk" loading="lazy" width="900" height="700">
       </div>
       <ol class="steps">
         <li>
+          <span class="when">Dawn</span>
           <h3>Wake for Fajr, not for your feed</h3>
           <p>Charge your phone outside the bedroom. The first thing your mind meets sets the tone for the day.</p>
         </li>
         <li>
+          <span class="when">Fajr</span>
           <h3>Pray with khushu'</h3>
           <p>Slow down your first two rak'ahs. Presence is a skill, and this is where you train it.</p>
         </li>
         <li>
+          <span class="when">After Fajr</span>
           <h3>Morning adhkar and a few ayat</h3>
           <p>Five quiet minutes of remembrance before any input. Let your heart settle before the world gets a say.</p>
         </li>
         <li>
+          <span class="when">Before work</span>
           <h3>Set one niyyah for the day</h3>
           <p>Write one meaningful task on paper. One intention, clearly made, beats a long list you never start.</p>
         </li>
         <li>
+          <span class="when">Until Dhuhr</span>
           <h3>One deep block before Dhuhr</h3>
           <p>Ninety minutes, phone in another room. Then let Dhuhr be your recalibration point.</p>
         </li>
@@ -234,7 +321,7 @@
   </section>
 
   <!-- LEGACY -->
-  <section class="legacy">
+  <section class="legacy" style="--legacy-img:url('https://images.unsplash.com/photo-1600814832809-579119f47045?auto=format&fit=crop&q=80&w=1600')">
     <div class="wrap legacy-grid">
       <h2>What you build with focused attention can keep earning reward long after you.</h2>
       <div>
