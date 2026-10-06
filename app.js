@@ -24,7 +24,7 @@
   if (!data || typeof data !== 'object') data = { v: 1 };
   ['profile', 'days', 'weeks', 'settings'].forEach(k => { if (!data[k] || typeof data[k] !== 'object') data[k] = {}; });
   function day(k) {
-    if (!data.days[k]) data.days[k] = { anchors: [], focusSec: 0, sessions: 0, pages: 0, dhikr: 0, niyyah: '' };
+    if (!data.days[k]) data.days[k] = { anchors: [], focusSec: 0, sessions: 0, pages: 0, niyyah: '' };
     return data.days[k];
   }
   const peek = k => data.days[k] || null;
@@ -313,38 +313,6 @@
       : done.length + ' of ' + ANCHORS.length + ' done today';
   }
 
-  /* ---------- Dhikr counter ---------- */
-  let dkCount = 0, dkTarget = 33;
-  const dkChips = document.querySelectorAll('.dk-chip');
-  function renderDhikr() {
-    $('dk-count').textContent = dkCount;
-    $('dk-target').textContent = 'of ' + dkTarget;
-    $('dk-ring').style.strokeDashoffset = 100 - Math.min(100, dkCount / dkTarget * 100);
-    const r = peek(todayK());
-    $('dk-total').textContent = (r ? r.dhikr : 0) + ' today';
-  }
-  $('dk-tap').addEventListener('click', () => {
-    dkCount += 1;
-    day(todayK()).dhikr += 1;
-    if (dkCount === dkTarget) {
-      $('dk-msg').textContent = 'Target reached. ' + $('dk-phrase').value + '.';
-      if (navigator.vibrate) navigator.vibrate(80);
-    } else if (dkCount < dkTarget) {
-      $('dk-msg').textContent = '';
-    }
-    changed();
-  });
-  $('dk-reset').addEventListener('click', () => { dkCount = 0; $('dk-msg').textContent = ''; renderDhikr(); });
-  $('dk-phrase').addEventListener('change', () => { dkCount = 0; $('dk-msg').textContent = ''; renderDhikr(); });
-  dkChips.forEach(c => c.addEventListener('click', () => {
-    dkChips.forEach(x => x.classList.remove('is-on'));
-    c.classList.add('is-on');
-    dkTarget = Number(c.dataset.n);
-    dkCount = 0;
-    $('dk-msg').textContent = '';
-    renderDhikr();
-  }));
-
   /* ---------- Qur'an reading ---------- */
   const goalSel = $('qr-goal');
   if (st.quranGoal) goalSel.value = st.quranGoal;
@@ -393,7 +361,6 @@
     $('wk-focus').textContent = focus ? fmtMins(focus) : '0 min';
     $('wk-anch').textContent = Math.round(weekSum(weekStart, 'anchors') / 35 * 100) + '%';
     $('wk-pages').textContent = weekSum(weekStart, 'pages');
-    $('wk-dhikr').textContent = weekSum(weekStart, 'dhikr');
     $('wk-next').disabled = thisWeek;
     renderReflection();
   }
@@ -494,7 +461,6 @@
     $('cd-focus').textContent = r && r.focusSec ? fmtMins(r.focusSec) : '0 min';
     const pg = r ? r.pages : 0;
     $('cd-pages').textContent = pg + (pg === 1 ? ' page' : ' pages');
-    $('cd-dhikr').textContent = r ? r.dhikr : 0;
     $('cd-niyyah').textContent = r && r.niyyah ? '\u201C' + r.niyyah + '\u201D' : (selected > todayK() ? 'This day is still ahead of you.' : 'No niyyah saved for this day.');
   }
   $('cal-prev').addEventListener('click', () => { calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() - 1, 1); renderCalendar(); });
@@ -502,7 +468,7 @@
   $('cal-today').addEventListener('click', () => selectDay(todayK(), false));
 
   /* ---------- Wire up ---------- */
-  listeners.push(renderTimerToday, renderAnchors, renderDhikr, renderQuran, renderWeekBarsOnly, renderCalendar, renderDetail, renderHero);
+  listeners.push(renderTimerToday, renderAnchors, renderQuran, renderWeekBarsOnly, renderCalendar, renderDetail, renderHero);
   function renderWeekBarsOnly() {
     const keep = [$('rf-good').value, $('rf-next').value];
     renderWeek();
@@ -515,7 +481,6 @@
   renderTimerToday();
   renderNiyyah();
   renderAnchors();
-  renderDhikr();
   renderQuran();
   renderWeek();
   renderCalendar();
