@@ -200,6 +200,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 .legacy p{font-size:1.1rem}
 
 /* Newsletter */
+.shop{background:var(--sand);padding:var(--sec) 0}
+.shop p{color:var(--ink-soft);font-size:1.1rem;margin:1rem 0 2rem}
 .letter{padding:var(--sec) 0}
 .letter p{color:var(--ink-soft);font-size:1.1rem;margin-top:1rem}
 .sub{display:flex;gap:.6rem;max-width:520px;margin:2rem auto 0;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:.4rem}
