@@ -201,7 +201,15 @@ button{font:inherit;color:inherit;cursor:pointer}
 
 /* Newsletter */
 .shop{background:var(--sand);padding:var(--sec) 0}
-.shop p{color:var(--ink-soft);font-size:1.1rem;margin:1rem 0 2rem}
+.shop-head{max-width:760px;margin:0 auto 2.5rem}
+.shop-head p{color:var(--ink-soft);font-size:1.1rem;margin:1rem 0 0}
+.prods{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem}
+.prod h3{font-size:1.1rem;margin:1rem 0 .4rem}
+.prod p{color:var(--ink-soft);font-size:.95rem;margin:0 0 1.25rem;flex:1}
+.prod-foot{display:grid;gap:.75rem}
+.prod-foot .btn{text-align:center}
+.prod-price{font-size:1.4rem;font-weight:600}
+.shop-more{color:var(--ink-soft);margin:2rem 0 0}
 .letter{padding:var(--sec) 0}
 .letter p{color:var(--ink-soft);font-size:1.1rem;margin-top:1rem}
 .sub{display:flex;gap:.6rem;max-width:520px;margin:2rem auto 0;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:.4rem}
